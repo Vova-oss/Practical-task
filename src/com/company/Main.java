@@ -13,11 +13,11 @@ public class Main {
         int PS = in.nextInt();
         int T = in.nextInt();
         int i=0,j=0,y=0,e=0,tr=0,s=0,ps=0,t=0;
-        int sum = 30 * TR + 100 * S + 500 * PS * 1000 * T ;
+         int sum = 30 * TR + 100 * S + 500 * PS + 1000 * T ;
 
         System.out.print("Введите сумму, которую желаете получить \n");
         int x = in.nextInt();
-        if (x < 10 || x > sum || x % 10 > 0) {
+        if (x < 30 || x > sum || x % 10 > 0) {
             System.out.print("Данную сумму невозможно выдать. Обратитесь в другой банкомат.\n");
         } else {
 
