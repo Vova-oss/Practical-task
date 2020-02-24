@@ -6,16 +6,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.print("Введите через пробел количество купюр различного наминала: Десять, пятьдесят, сто, пятьсот, тысяча, пять тысяч(Только для работников банка) \n");
+        System.out.print("Введите через пробел количество купюр различного номинала: Тридцать, пятьдесят, сто, пятьсот, тысяча(Только для работников банка) \n");
         Scanner in = new Scanner(System.in);
-        int D = in.nextInt();
-        int P = in.nextInt();
+        int TR = in.nextInt();
         int S = in.nextInt();
         int PS = in.nextInt();
         int T = in.nextInt();
-        int PT = in.nextInt();
-        int d=0,p=0,s=0,ps=0,t=0,pt=0;
-        int sum = 10 * D + 50 * P + 100 * S + 500 * PS * 1000 * T + 5000 * PT;
+        int i=0,j=0,y=0,e=0,tr=0,s=0,ps=0,t=0;
+        int sum = 30 * TR + 100 * S + 500 * PS * 1000 * T ;
 
         System.out.print("Введите сумму, которую желаете получить \n");
         int x = in.nextInt();
@@ -23,51 +21,21 @@ public class Main {
             System.out.print("Данную сумму невозможно выдать. Обратитесь в другой банкомат.\n");
         } else {
 
-            if(x>4999) {
-                pt = x / 5000;
-                while (pt > PT) {
-                    pt--;
+            for( i=0;i<TR+1;i++){
+                for( j=0;j<S+1;j++){
+                    for( y=0;y<PS+1;y++){
+                        for( e=0;e<T+1;e++){
+                            if(i*30+j*100+y*500+e*1000==x){
+                                tr=i;s=j;ps=y;t=e;
+                                i=TR+1;j=S+1;y=PS+1;e=T+1;x=0;
+                            }
+                        }
+                    }
                 }
-                x = x - 5000 * pt;
-            }
-            if(x>999) {
-                t = x / 1000;
-                while (t > T) {
-                    t--;
-                }
-                x = x - 1000 * t;
-            }
-            if(x>499) {
-                ps = x / 500;
-                while (ps > PS) {
-                    ps--;
-                }
-                x = x - 500 * ps;
-            }
-            if(x>99) {
-                s = x / 100;
-                while (s > S) {
-                    s--;
-                }
-                x = x - 100 * s;
-            }
-            if(x>49) {
-                p = x / 50;
-                while (p > P) {
-                    p--;
-                }
-                x = x - 50 * p;
-            }
-            if(x>9) {
-                d = x / 10;
-                while (d > D) {
-                    d--;
-                }
-                x = x - 10 * d;
             }
             if (x == 0) {
-                System.out.print("Вы получите: " + pt+ " купюр(ы) наминалом 5000, "+ t+" купюр(ы) наминалом 1000, "+ ps+" купюр(ы) наминалом 500, \n"
-                        + s +" купюр(ы) наминалом 100, "+ p+" купюр(ы) наминалом 50, "+ d+" купюр(ы) наминалом 10. " );
+                System.out.print("Вы получите: " + t+" купюр(ы) наминалом 1000, "+ ps+" купюр(ы) наминалом 500, \n"
+                        + s +" купюр(ы) наминалом 100, "+ tr+" купюр(ы) наминалом 30." );
             }else   System.out.print("Данную сумму невозможно выдать. Обратитесь в другой банкомат.\n");
         }
 
